@@ -1,7 +1,17 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import random
 
 app = FastAPI()
+
+# 👇 ESTO ES LO IMPORTANTE (CORS)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def home():
@@ -21,3 +31,4 @@ def prediccion(data: dict):
         "probabilidad_equipo1": prob1,
         "probabilidad_equipo2": prob2
     }
+
