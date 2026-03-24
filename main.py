@@ -66,9 +66,10 @@ def prediccion(data: dict):
     equipo1 = data["equipo1"]
     equipo2 = data["equipo2"]
 
-    headers = {
-        "x-apisports-key": API_KEY
-    }
+    headers = headers = {
+    "x-rapidapi-key": API_KEY,
+    "x-rapidapi-host": "v3.football.api-sports.io"
+}
 
     # Buscar equipos
     res1 = requests.get(
